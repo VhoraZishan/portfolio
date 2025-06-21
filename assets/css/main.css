@@ -1,0 +1,28 @@
+body {
+  scroll-behavior: smooth;
+  background-color: #000;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  padding-top: 30px;
+}
+
+h1, h2, h3, h4, h5 {
+  color: #fff;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-click-pulse {
+  animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.05); }
+}
