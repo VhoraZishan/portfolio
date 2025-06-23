@@ -65,7 +65,7 @@ const fullHeight = Math.max(
   container.scrollHeight || 0
 );
 
-for (let i = 0; i < 30; i++) {
+for (let i = 0; i < 35; i++) {
   const span = document.createElement("span");
   span.className = "floating-text";
   span.innerText = keywords[Math.floor(Math.random() * keywords.length)];
