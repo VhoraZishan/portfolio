@@ -17,7 +17,7 @@ body {
   background-color: #000;
   color: #fff;
   font-family: 'Segoe UI', sans-serif;
-  padding-top: 56px; /* Bootstrap navbar default height */
+  padding-top: 20px; /* Bootstrap navbar default height */
 }
 
 /* Main wrapper (if used) */
@@ -55,9 +55,7 @@ button {
 
 /* Responsive fix for mobile */
 @media (max-width: 768px) {
-  body {
-    padding-top: 6rem;
-  }
+  
 
   .container, .row {
     margin: 0 !important;

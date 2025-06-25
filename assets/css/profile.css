@@ -1,79 +1,165 @@
-.profile-section {
-  text-align: center;
-  padding: 100px 20px 50px;
-  color: white;
+/* 🪐 Full-height landing */
+.landing-hero {
+  min-height: 100vh;
+  padding-top: 5rem;
+  padding-bottom: 4rem;
+  background: transparent;
+}
+
+/* 👤 Hero Name */
+.hero-name {
+  font-family: 'Orbitron', monospace;
+  font-size: 5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #00fff7;
+  letter-spacing: 3px;
   position: relative;
-  z-index: 1;
+  opacity: 0;
+  animation: scanIn 1.5s ease-out forwards;
+  text-shadow:
+    0 0 8px #00fff7,
+    0 0 16px #00fff7,
+    0 0 24px #00fff7;
 }
 
-.profile-wrapper {
-  position: relative;
-  width: 150px;
-  height: 150px;
-  margin: 0 auto 20px;
-}
-
-.profile-img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid #64ffda;
-  z-index: 2;
-  position: relative;
-}
-
-.glow-ring {
-  position: absolute;
-  top: -10px;
-  left: -10px;
-  width: 170px;
-  height: 170px;
-  border-radius: 50%;
-  border: 2px solid #64ffda;
-  box-shadow: 0 0 15px #64ffda;
-  animation: pulse 2s infinite ease-in-out;
-  z-index: 1;
-}
-
-@keyframes pulse {
-  0%   { transform: scale(1); opacity: 0.7; }
-  50%  { transform: scale(1.1); opacity: 1; }
-  100% { transform: scale(1); opacity: 0.7; }
-}
-
-.tagline {
-  font-size: 1.2rem;
+/* 💬 Subtagline */
+.subtagline {
+  font-size: 1.3rem;
+  font-family: 'Share Tech Mono', monospace;
   color: #aaa;
+  opacity: 0;
+  animation: fadeUp 1.5s ease-out forwards 0.5s;
 }
 
-.profile-section {
-  padding: 4rem 1rem;
-}
-
-.profile-links {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.profile-links .btn {
+/* 🎯 CTA Buttons */
+.cta-buttons a.btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
   font-weight: 500;
-  margin: 0.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  animation: fadeUp 1.2s ease-out forwards 0.8s;
 }
 
-.icon-link {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 44px;
-  height: 44px;
-  padding: 0;
-  border-radius: 50%;
+.cta-buttons a.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 255, 255, 0.2);
 }
 
-.icon-link i {
-  font-size: 1.2rem;
-  line-height: 1;
+/* ⬇️ Scroll Down Indicator */
+.scroll-down-indicator {
+  font-size: 2rem;
+  color: #00fff7;
+  animation: bounceDown 1.5s infinite 2s;
 }
+
+/* 📽️ Scan In Animation */
+@keyframes scanIn {
+  0% {
+    transform: scaleY(0.2) skewY(10deg);
+    opacity: 0;
+    filter: blur(10px);
+  }
+  60% {
+    transform: scaleY(1.1);
+    opacity: 0.7;
+    filter: blur(3px);
+  }
+  100% {
+    transform: scaleY(1) skewY(0deg);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+/* 🎞️ Fade Up Animation */
+@keyframes fadeUp {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* 📡 Bouncing Scroll Arrow */
+@keyframes bounceDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+
+/* 💫 Responsive Tweaks */
+@media (max-width: 768px) {
+  .hero-name {
+    font-size: 2.8rem;
+  }
+
+  .subtagline {
+    font-size: 1.1rem;
+  }
+
+  .cta-buttons a.btn {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* 💡 Glitch Effect */
+.glitch {
+  position: relative;
+  color: #00fff7;
+  font-weight: bold;
+  font-family: 'Courier New', monospace;
+}
+
+/* 👻 Glitch layers */
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  color: #00fff7;
+  background: transparent;
+  overflow: hidden;
+  clip: rect(0, 900px, 0, 0);
+}
+
+/* 🔴 Red offset layer */
+.glitch::before {
+  left: 2px;
+  text-shadow: -2px 0 red;
+  animation: glitchTop 2s infinite linear alternate-reverse;
+}
+
+/* 🔵 Blue offset layer */
+.glitch::after {
+  left: -2px;
+  text-shadow: -2px 0 blue;
+  animation: glitchBottom 2s infinite linear alternate-reverse;
+}
+
+/* Glitch top layer animation */
+@keyframes glitchTop {
+  0%   { clip: rect(0, 9999px, 0, 0); }
+  5%   { clip: rect(0, 9999px, 10px, 0); }
+  10%  { clip: rect(0, 9999px, 5px, 0); }
+  15%  { clip: rect(0, 9999px, 0, 0); }
+  20%  { clip: rect(5px, 9999px, 10px, 0); }
+  100% { clip: rect(0, 9999px, 0, 0); }
+}
+
+/* Glitch bottom layer animation */
+@keyframes glitchBottom {
+  0%   { clip: rect(0, 9999px, 0, 0); }
+  5%   { clip: rect(10px, 9999px, 20px, 0); }
+  10%  { clip: rect(0, 9999px, 5px, 0); }
+  15%  { clip: rect(10px, 9999px, 15px, 0); }
+  20%  { clip: rect(0, 9999px, 0, 0); }
+  100% { clip: rect(0, 9999px, 0, 0); }
+}
+
