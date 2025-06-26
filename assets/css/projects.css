@@ -6,20 +6,27 @@ html, body {
 
 /* General card styling */
 .project-card {
-  background: rgba(255, 255, 255, 0.05);
-  border-left: 4px solid #00adb5;
-  border-radius: 12px;
+  background: rgba(17, 17, 17, 0.6); /* dark translucent */
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  border-radius: 16px;
   overflow: hidden;
+  backdrop-filter: blur(10px); /* frosted glass effect */
+  -webkit-backdrop-filter: blur(10px); /* for Safari */
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: auto;
 }
 
 /* Hover effect */
 .project-card:hover {
   transform: scale(1.05);
   box-shadow: 0 10px 25px rgba(0, 255, 255, 0.2);
+}
+
+.projects-section .row {
+  align-items: flex-start;
 }
 
 /* Clickable area */
@@ -72,4 +79,36 @@ html, body {
     width: 100%;
     margin: 0 auto;
   }
+}
+
+.project-desc {
+  font-size: 0.95rem;
+  color: #e0e0e0;
+  position: relative;
+}
+
+.project-desc .short-text {
+  display: inline;
+}
+
+.project-desc .full-text {
+  display: block;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.4s ease-in-out;
+  margin-top: 0.5rem;
+}
+
+.project-desc .full-text.expanded {
+  max-height: 500px;
+  opacity: 1;
+}
+
+.read-more-btn {
+  font-size: 0.8rem;
+  padding: 2px 8px;
+  cursor: pointer;
+  background: transparent;
+  border-radius: 6px;
 }
