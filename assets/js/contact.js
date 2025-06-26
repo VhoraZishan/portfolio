@@ -34,6 +34,7 @@ script.onload = () => {
           spinner.style.display = "none";
           statusMsg.innerText = "❌ Failed to send. Try again.";
           statusMsg.style.color = "#f00";
+          console.error("EmailJS Error:", error);
         });
     });
   }
