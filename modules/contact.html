@@ -6,26 +6,31 @@
         <div class="card-body">
         
           <h3 class="text-info text-center mb-4">Contact Me</h3>
-
-          <form class="row g-3">
+          <form id="contact-form" class="row g-3">
             <div class="col-md-6">
               <label for="name" class="form-label">Name</label>
-              <input type="text" class="form-control bg-dark text-light border-info" id="name" placeholder="Your Name">
+              <input type="text" class="form-control bg-dark text-light border-info" id="name" name="user_name" placeholder="Your Name" required>
             </div>
             <div class="col-md-6">
               <label for="email" class="form-label">Email</label>
-              <input type="email" class="form-control bg-dark text-light border-info" id="email" placeholder="Your Email">
+              <input type="email" class="form-control bg-dark text-light border-info" id="email" name="user_email" placeholder="Your Email" required>
             </div>
             <div class="col-12">
               <label for="subject" class="form-label">Subject</label>
-              <input type="text" class="form-control bg-dark text-light border-info" id="subject" placeholder="e.g. Freelance Work, Inquiry, Job">
+              <input type="text" class="form-control bg-dark text-light border-info" id="subject" name="subject" placeholder="e.g. Freelance Work, Inquiry, Job" required>
             </div>
             <div class="col-12">
               <label for="message" class="form-label">Message</label>
-              <textarea class="form-control bg-dark text-light border-info" id="message" rows="4" placeholder="Your Message"></textarea>
+              <textarea class="form-control bg-dark text-light border-info" id="message" name="message" rows="4" placeholder="Your Message" required></textarea>
             </div>
             <div class="col-12 text-center">
               <button type="submit" class="btn btn-info mt-3 btn-click-pulse">Send Message</button>
+              <div id="contact-spinner" class="mt-3" style="display: none;">
+                <div class="spinner-border text-info" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </div>
+              <p id="contact-status" class="mt-3"></p>
             </div>
           </form>
 
