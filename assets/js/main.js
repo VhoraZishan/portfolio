@@ -7,7 +7,9 @@ const modules = [
   "projects",
   "resume",
   "contact",
-  "footer"
+  "footer",
+  "education",
+  "certification"
 ];
 
 modules.forEach(id => {
@@ -54,6 +56,34 @@ modules.forEach(id => {
         .catch(err => console.error(`Error loading ${id}.html:`, err));
     }
 
+    else if (id === "education") {
+  fetch(`modules/${id}.html`)
+    .then(res => res.text())
+    .then(html => {
+      el.innerHTML = html;
+    })
+    .catch(err => console.error(`Error loading ${id}.html:`, err));
+}
+
+else if (id === "certification") {
+  fetch(`modules/${id}.html`)
+    .then(res => res.text())
+    .then(html => {
+      el.innerHTML = html;
+    })
+    .catch(err => console.error(`Error loading ${id}.html:`, err));
+}
+
+else if (id === "footer") {
+  fetch(`modules/${id}.html`)
+    .then(res => res.text())
+    .then(html => {
+      el.innerHTML = html;
+      loadScript("assets/js/footer.js"); // <-- Make sure this line exists
+    })
+    .catch(err => console.error(`Error loading ${id}.html:`, err));
+}
+
     else {
       // Load module with no extra script
       fetch(`modules/${id}.html`)
@@ -64,6 +94,7 @@ modules.forEach(id => {
         .catch(err => console.error(`Error loading ${id}.html:`, err));
     }
   }
+  
 });
 
 // Utility function to load external JS files dynamically
@@ -73,3 +104,4 @@ function loadScript(src) {
   script.type = "text/javascript";
   document.body.appendChild(script);
 }
+

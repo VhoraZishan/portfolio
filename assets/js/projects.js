@@ -1,8 +1,9 @@
-console.log("projects.js loaded");
-
 setTimeout(() => {
   const buttons = document.querySelectorAll(".read-more-btn");
+  const toggleBtn = document.getElementById("toggle-projects-btn");
+  const moreProjects = document.querySelector(".more-projects");
 
+  // Read More buttons
   buttons.forEach((btn) => {
     btn.addEventListener("click", () => {
       const desc = btn.closest(".project-content").querySelector(".project-desc");
@@ -22,4 +23,21 @@ setTimeout(() => {
       }
     });
   });
-}, 50); // small delay to ensure DOM is ready
+
+  // See More toggle
+if (toggleBtn && moreProjects) {
+  toggleBtn.addEventListener("click", () => {
+    const isVisible = moreProjects.classList.contains("show");
+
+    if (isVisible) {
+      moreProjects.classList.remove("show");
+      toggleBtn.textContent = "See More";
+      document.getElementById("projects").scrollIntoView({ behavior: "smooth" });
+    } else {
+      moreProjects.classList.add("show");
+      toggleBtn.textContent = "See Less";
+    }
+  });
+}
+
+}, 50);
