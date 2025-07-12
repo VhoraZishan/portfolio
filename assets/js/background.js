@@ -54,7 +54,7 @@ setTimeout(() => {
   }
 
   // ✅ Floating words
-  const keywords = ["</>", "{}", "AI", "SQL", "HTML", "CSS", "JS", "Python", "DevOps", "function()", "<React>", "console.log()"];
+  const keywords = ["</>", "{}","C", "C++", "print()", "AI", "SQL", "HTML", "CSS", "JS", "Python", "DevOps", "function()", "<React>", "console.log()"];
 
 const colors = ["#64ffda", "#ff4081", "#7c4dff", "#ffc107", "#00bcd4", "#e91e63", "#03a9f4", "#c6ff00", "#ff6f00"];
 
